@@ -1,0 +1,51 @@
+.featuredBanner {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+}
+
+.featuredBanner__content {
+  padding: 140px 40px 0;
+  max-width: 600px;
+}
+
+.featuredBanner__title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.featuredBanner__description {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  max-width: 70%;
+  margin-bottom: 20px;
+}
+
+.featuredBanner__buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.featuredBanner__button {
+  padding: 10px 24px;
+  border-radius: 4px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.featuredBanner__button--secondary {
+  background: rgba(109, 109, 110, 0.7);
+  color: #fff;
+}
+
+.featuredBanner__fadeBottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 7rem;
+  background: linear-gradient(180deg, transparent, #111);
+}

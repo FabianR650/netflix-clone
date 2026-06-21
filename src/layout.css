@@ -1,0 +1,12 @@
+.netflix-container {
+  width: 100%;
+  padding-left: 3.5rem;   /* 56px */
+  padding-right: 3.5rem;  /* 56px */
+}
+
+@media (max-width: 600px) {
+  .netflix-container {
+    padding-left: 1.5rem;   /* 24px */
+    padding-right: 1.5rem;  /* 24px */
+  }
+}

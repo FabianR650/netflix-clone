@@ -1,0 +1,11 @@
+.browse {
+  background-color: #111;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.browse__rows {
+  margin-top: -80px; /* pulls rows up under banner fade */
+  position: relative;
+  z-index: 2;
+}

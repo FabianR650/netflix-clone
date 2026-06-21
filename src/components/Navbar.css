@@ -1,0 +1,73 @@
+/* NAVBAR WRAPPER */
+.nav {
+  width: 100%;
+  padding: 24px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/* CENTER CONTENT */
+.nav__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LEFT SIDE — LOGO */
+.nav__left {
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav__wordmarkText {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e50914;
+  letter-spacing: 1px;
+}
+
+/* RIGHT SIDE — LANGUAGE + SIGN IN */
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* LANGUAGE DROPDOWN */
+.nav__language select {
+  padding: 6px 28px 6px 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* SIGN IN BUTTON */
+.nav__signin {
+  background: #e50914;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.nav__signin:hover {
+  background: #f6121d;
+}

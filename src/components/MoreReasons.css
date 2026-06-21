@@ -1,0 +1,111 @@
+.reasons {
+  padding: 56px 72px;
+  background: #000;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TITLE */
+.reasons__title {
+  width: 100%;
+  max-width: 1400px;
+
+  font-size: 1.75rem;
+  font-weight: 700;
+
+  margin-bottom: 28px;
+}
+
+/* GRID (Netflix uses 4 fixed columns on desktop) */
+.reasons__grid {
+  width: 100%;
+  max-width: 1400px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* CARD */
+.reason__card {
+  position: relative;
+
+  border-radius: 14px;
+
+  /* 🔥 Netflix gradient (very accurate) */
+  background: linear-gradient(91deg, #261733, #151a3f);
+
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  padding: 26px 22px 72px;
+  min-height: 190px;
+
+  overflow: hidden;
+
+  transition: 
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* subtle glow layer like Netflix */
+.reason__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at 80% 120%,
+    rgba(229, 9, 20, 0.15),
+    transparent 60%
+  );
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* HOVER */
+.reason__card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(255, 255, 255, 0.15);
+
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.reason__card:hover::before {
+  opacity: 1;
+}
+
+/* ICON (perfect Netflix placement) */
+.reason__icon {
+  position: absolute;
+
+  width: 40px;
+  height: 40px;
+
+  right: 18px;
+  bottom: 18px;
+
+  opacity: 0.95;
+}
+
+/* TEXT */
+.reason__heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+}
+
+.reason__text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.85;
+
+  max-width: 90%;
+}

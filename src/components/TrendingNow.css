@@ -1,0 +1,124 @@
+/* SECTION */
+.trending {
+  background: #000;
+  color: #fff;
+  padding: 48px 72px;
+}
+
+.trending__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* WRAPPER (for arrows) */
+.trending__wrapper {
+  position: relative;
+}
+
+/* ROW */
+.trending__row {
+  display: flex;
+  gap: 54px;
+
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.trending__row::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+.trending__card {
+  position: relative;
+  flex: 0 0 auto;
+
+  width: 160px;
+  height: 240px;
+
+  border-radius: 6px;
+  overflow: visible;
+
+  transition: transform 0.3s ease;
+}
+
+.trending__card:hover {
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+/* IMAGE */
+.trending__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* 🔥 BIG NETFLIX NUMBER */
+.trending__number {
+  position: absolute;
+  left: -18px;
+  bottom: -10px;
+
+  font-size: 120px;
+  font-weight: 900;
+
+  color: #000;
+  -webkit-text-stroke: 2px #fff;
+
+  line-height: 1;
+  z-index: 1;
+}
+
+/* ARROW BUTTONS */
+.trending__btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  width: 48px;
+
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #fff;
+
+  font-size: 2rem;
+  cursor: pointer;
+
+  z-index: 3;
+
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.trending__wrapper:hover .trending__btn {
+  opacity: 1;
+}
+
+.trending__btn.left {
+  left: 0;
+}
+
+.trending__btn.right {
+  right: 0;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .trending {
+    padding: 32px 20px;
+  }
+
+  .trending__card {
+    width: 120px;
+    height: 180px;
+  }
+
+  .trending__number {
+    font-size: 80px;
+    left: -12px;
+  }
+}

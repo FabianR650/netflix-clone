@@ -1,0 +1,100 @@
+.hero {
+  width: 100%;
+  min-height: 80vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 24px;
+  background: url("../assets/netflix-bg.jpg") center/cover no-repeat;
+}
+
+.hero__layer {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero__card {
+  position: relative;
+  z-index: 2;
+  width: min(640px, 100%);
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.hero__title {
+  margin: 0 0 16px;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  line-height: 1.05;
+}
+
+.hero__subtitle,
+.hero__text {
+  margin: 0 auto 18px;
+  max-width: 520px;
+}
+
+.hero__subtitle {
+  color: #ddd;
+  font-size: 1.1rem;
+}
+
+.hero__text {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.hero__form {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.hero__input,
+.hero__button {
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.hero__input {
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.hero__input::placeholder {
+  color: #bbb;
+}
+
+.hero__button {
+  padding: 14px 16px;
+  background: #e50914;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hero__button:hover {
+  opacity: 0.95;
+}
+
+.hero__error {
+  margin-top: 14px;
+  color: #ffbaba;
+}
+
+@media (min-width: 760px) {
+  .hero__form {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .hero__input {
+    width: auto;
+  }
+}

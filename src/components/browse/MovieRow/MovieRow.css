@@ -1,0 +1,31 @@
+.movieRow {
+  margin-bottom: 40px;
+  padding-left: 40px;
+}
+
+.movieRow__title {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.movieRow__posters {
+  display: flex;
+  overflow-x: scroll;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.movieRow__posters::-webkit-scrollbar {
+  display: none;
+}
+
+.movieRow__poster {
+  width: 160px;
+  border-radius: 4px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.movieRow__poster:hover {
+  transform: scale(1.08);
+}

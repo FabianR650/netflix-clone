@@ -1,0 +1,39 @@
+.browseNav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+  z-index: 10;
+}
+
+.browseNav__logo {
+  color: #e50914;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.browseNav__links {
+  display: flex;
+  gap: 20px;
+  margin-left: 40px;
+  list-style: none;
+}
+
+.browseNav__links li {
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.browseNav__right {
+  display: flex;
+  align-items: center;
+}
+
+.browseNav__profile {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
