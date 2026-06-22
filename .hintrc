@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "inset"
+        ]
+      }
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not ios_saf <= 11.2",
+    "not chrome <= 112",
+    "not ios_saf <= 26.4",
+    "not safari <= 26.4",
+    "not samsung <= 29"
+  ]
+}
