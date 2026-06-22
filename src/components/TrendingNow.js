@@ -17,7 +17,7 @@ function TrendingNow() {
         const apiKey = process.env.REACT_APP_TMDB_KEY;
 
         const res = await fetch(
-          `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`
+          `https://api.themoviedb.org/3/trending/movie/week?api_key=${d42c74a66cf484ea74f3a086dcaf2d10}`
         );
 
         const data = await res.json();
