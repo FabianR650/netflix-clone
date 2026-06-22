@@ -16,7 +16,7 @@ export default function PromoBanners() {
     <div className="promo-banner">
       <div className="promo-left">
         <div className="promo-text">
-          <h4>The Netflix you love for just $7.99.</h4>
+          <h4>The Netflix you love for just $8.99.</h4>
           <p>Get our most affordable, ad-supported plan.</p>
         </div>
       </div>
