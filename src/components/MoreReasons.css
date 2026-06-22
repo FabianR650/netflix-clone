@@ -1,8 +1,8 @@
+/* WRAPPER */
 .reasons {
-  padding: 56px 72px;
+  padding: 56px 24px;
   background: #000;
   color: #fff;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,86 +11,74 @@
 /* TITLE */
 .reasons__title {
   width: 100%;
-  max-width: 1400px;
-
+  max-width: 1280px;
   font-size: 1.75rem;
   font-weight: 700;
-
   margin-bottom: 28px;
 }
 
-/* GRID (Netflix uses 4 fixed columns on desktop) */
+/* FLEX GRID (Netflix uses flex, not grid) */
 .reasons__grid {
   width: 100%;
-  max-width: 1400px;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  max-width: 1280px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-/* CARD */
+/* ============================= */
+/* XS + S (Phones) — 1 column    */
+/* ============================= */
 .reason__card {
+  flex: 0 0 calc(100% - 0.75rem);
   position: relative;
 
+  padding: 1.5rem 1rem 5rem 1rem;
   border-radius: 14px;
 
-  /* 🔥 Netflix gradient (very accurate) */
   background: linear-gradient(91deg, #261733, #151a3f);
-
-
   border: 1px solid rgba(255, 255, 255, 0.06);
 
-  padding: 26px 22px 72px;
-  min-height: 190px;
-
   overflow: hidden;
-
-  transition: 
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* subtle glow layer like Netflix */
-.reason__card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: radial-gradient(
-    circle at 80% 120%,
-    rgba(229, 9, 20, 0.15),
-    transparent 60%
-  );
-
-  opacity: 0;
-  transition: opacity 0.3s ease;
+/* ============================= */
+/* M (Tablets) — 2 columns       */
+/* ============================= */
+@media (min-width: 600px) {
+  .reason__card {
+    flex: 0 0 calc(50% - 0.75rem);
+    padding: 1.5rem 1.5rem 6rem 1.5rem;
+  }
 }
 
-/* HOVER */
-.reason__card:hover {
-  transform: translateY(-6px);
-
-  border-color: rgba(255, 255, 255, 0.15);
-
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+/* ============================= */
+/* L (Desktops) — 4 columns      */
+/* ============================= */
+@media (min-width: 1024px) {
+  .reason__card {
+    flex: 0 0 calc(25% - 1rem);
+    padding: 1.5rem 1rem 8rem 1rem;
+  }
 }
 
-.reason__card:hover::before {
-  opacity: 1;
+/* ============================= */
+/* XL (Large screens)            */
+/* ============================= */
+@media (min-width: 1400px) {
+  .reason__card {
+    padding: 2rem 1.5rem 8rem 1.5rem;
+  }
 }
 
-/* ICON (perfect Netflix placement) */
+/* ICON */
 .reason__icon {
   position: absolute;
-
-  width: 40px;
-  height: 40px;
-
-  right: 18px;
-  bottom: 18px;
-
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 72px;
+  height: auto;
   opacity: 0.95;
 }
 
@@ -98,14 +86,10 @@
 .reason__heading {
   font-size: 1.2rem;
   font-weight: 700;
-
-  margin-bottom: 10px;
 }
 
 .reason__text {
   font-size: 0.95rem;
   line-height: 1.5;
   opacity: 0.85;
-
-  max-width: 90%;
 }

@@ -44,7 +44,7 @@ function TrendingNow() {
   return (
     <section className="trending">
       <div className="container">
-       <h2>{t("home.trending.title")}</h2>
+       <h2 className="trending__title">{t("Trending Now")}</h2>
 
         <div className="trending__wrapper">
           <button
