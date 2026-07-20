@@ -9,7 +9,7 @@ import { ProfileProvider } from "./context/ProfileContext";
 function App() {
   return (
     <ProfileProvider>
-      <BrowserRouter basename="/netflix-clone">
+      <BrowserRouter>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
