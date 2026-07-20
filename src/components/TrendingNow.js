@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 // TrendingNow.jsx
 import React, { useEffect, useRef, useState } from "react";
 import "./TrendingNow.css";
@@ -14,7 +16,7 @@ function TrendingNow() {
   useEffect(() => {
     async function fetchTrending() {
       try {
-        const apiKey = process.env.REACT_APP_TMDB_KEY;
+        const apiKey = process.env.d42c74a66cf484ea74f3a086dcaf2d10;
 
         const res = await fetch(
           `https://api.themoviedb.org/3/trending/movie/week?api_key=${d42c74a66cf484ea74f3a086dcaf2d10}`
