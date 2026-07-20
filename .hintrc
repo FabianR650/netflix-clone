@@ -10,7 +10,8 @@
           "inset"
         ]
       }
-    ]
+    ],
+    "compat-api/html": "off"
   },
   "browserslist": [
     "defaults",

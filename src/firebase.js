@@ -1,5 +1,4 @@
 // src/firebase.js
-
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
@@ -14,11 +13,28 @@ const config = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-const firebaseApp = initializeApp(config);
+let firebaseApp;
+let db, auth, storage;
 
-export const db = getFirestore(firebaseApp);
-export const auth = getAuth(firebaseApp);
-export const storage = getStorage(firebaseApp);
+try {
+  // Validate that all required keys exist before initializing
+  if (!config.apiKey || !config.projectId) {
+    throw new Error("Missing Firebase environment variables");
+  }
 
+  firebaseApp = initializeApp(config);
+  db = getFirestore(firebaseApp);
+  auth = getAuth(firebaseApp);
+  storage = getStorage(firebaseApp);
+
+  console.log("✅ Firebase initialized successfully");
+} catch (error) {
+  console.error("❌ Firebase initialization failed:", error.message);
+  // Provide fallbacks so the app still renders
+  db = null;
+  auth = null;
+  storage = null;
+}
+
+export { db, auth, storage };
 export default firebaseApp;
-

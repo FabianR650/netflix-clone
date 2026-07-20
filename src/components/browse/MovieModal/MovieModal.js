@@ -1,3 +1,4 @@
+// src/components/MovieModal/MovieModal.jsx
 import React, { useEffect, useState } from "react";
 import "./MovieModal.css";
 import tmdb from "../../../utils/tmdb";
@@ -16,7 +17,7 @@ function MovieModal({ movie, onClose }) {
   const [touchStartY, setTouchStartY] = useState(null);
   const [touchEndY, setTouchEndY] = useState(null);
 
-  const user = auth.currentUser;
+  const user = auth?.currentUser || null;
 
   // -----------------------------
   // FETCH MOVIE INFO
@@ -61,7 +62,7 @@ function MovieModal({ movie, onClose }) {
   // CHECK IF IN MY LIST
   // -----------------------------
   useEffect(() => {
-    if (!user || !movie?.id) return;
+    if (!auth || !db || !user || !movie?.id) return;
 
     const ref = doc(db, "users", user.uid, "myList", movie.id.toString());
     getDoc(ref)
@@ -73,25 +74,36 @@ function MovieModal({ movie, onClose }) {
   // ADD / REMOVE FROM MY LIST
   // -----------------------------
   async function addToList() {
+    if (!auth || !db) return alert("⚠️ Firebase not initialized");
     if (!user) return alert("Please sign in to save movies");
 
     const ref = doc(db, "users", user.uid, "myList", movie.id.toString());
-    await setDoc(ref, {
-      id: movie.id,
-      title: movie.title || movie.name,
-      poster_path: movie.poster_path,
-      backdrop_path: movie.backdrop_path,
-      overview: movie.overview,
-      timestamp: Date.now(),
-    });
-    setInList(true);
+    try {
+      await setDoc(ref, {
+        id: movie.id,
+        title: movie.title || movie.name,
+        poster_path: movie.poster_path,
+        backdrop_path: movie.backdrop_path,
+        overview: movie.overview,
+        timestamp: Date.now(),
+      });
+      setInList(true);
+    } catch (err) {
+      console.error("Add to list failed:", err);
+    }
   }
 
   async function removeFromList() {
+    if (!auth || !db) return console.warn("⚠️ Firebase not initialized");
     if (!user) return;
+
     const ref = doc(db, "users", user.uid, "myList", movie.id.toString());
-    await deleteDoc(ref);
-    setInList(false);
+    try {
+      await deleteDoc(ref);
+      setInList(false);
+    } catch (err) {
+      console.error("Remove from list failed:", err);
+    }
   }
 
   // -----------------------------
@@ -139,6 +151,25 @@ function MovieModal({ movie, onClose }) {
     return `${hours}h ${minutes}m`;
   };
 
+  // -----------------------------
+  // FALLBACK UI IF FIREBASE FAILS
+  // -----------------------------
+  if (!auth || !db) {
+    return (
+      <div className="modal__overlay">
+        <div className="modal__content">
+          <p>⚠️ Firebase not connected — My List is temporarily unavailable.</p>
+          <button className="modal__close" onClick={onClose}>
+            ✕
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // -----------------------------
+  // MAIN RENDER
+  // -----------------------------
   return (
     <div className="modal__overlay">
       <div
